@@ -1,0 +1,8 @@
+*
+!*-*.c
+!*.h
+!README.md
+!.gitignore
+
+# ignore these
+*-main.c
