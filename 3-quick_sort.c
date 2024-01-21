@@ -1,9 +1,4 @@
 #include "sort.h"
-
-void quicksort_recursive(int *array, int low, int high, size_t size);
-int partition(int *array, int low, int high, size_t size);
-void swap(int *array, int a, int b);
-
 /**
  * quick_sort - Sorts an array of integers using Quick Sort algorithm
  *
