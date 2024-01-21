@@ -23,13 +23,16 @@ void quick_sort(int *array, size_t size)
  */
 void quicksort_recursive(int *array, int low, int high, size_t size)
 {
-	if (low < high)
-	{
-		int pivot_index = partition(array, low, high, size);
+	int pivot_index;
 
-		quicksort_recursive(array, low, pivot_index - 1, size);
-		quicksort_recursive(array, pivot_index + 1, high, size);
+	if (low < 0 || low >= high)
+	{
+		return;
 	}
+	pivot_index = partition(array, low, high, size);
+
+	quicksort_recursive(array, low, pivot_index - 1, size);
+	quicksort_recursive(array, pivot_index + 1, high, size);
 }
 /**
  * partition - carries out the partition exchange Sort algorithm
@@ -44,24 +47,26 @@ int partition(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high];
 	int i = low - 1;
-	int j, temp;
+	int j;
 
 	for (j = low; j <= high - 1; j++)
 	{
-		if (array[j] < pivot)
+		if (array[j] <= pivot)
 		{
 			i++;
-			temp = array[i];
-			array[i] = array[j];
-			array[j] = temp;
-			print_array(array, size);
+			if (i != j)
+			{
+				swap(array, i, j);
+				print_array(array, size);
+			}
 		}
 	}
 	i++;
-	temp = array[i];
-	array[i] = array[high];
-	array[high] = temp;
-	print_array(array, size);
+	if (array[i] > pivot)
+	{
+		swap(array, i, high);
+		print_array(array, size);
+	}
 
 	return (i);
 }
@@ -80,4 +85,3 @@ void swap(int *array, int a, int b)
 	array[a] = array[b];
 	array[b] = temp;
 }
-
