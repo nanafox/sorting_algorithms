@@ -34,4 +34,10 @@ void swap(int *x, int *y);
 void _quicksort(int *array, int low, int high, size_t size);
 size_t partition(int *array, int low, int high, size_t size);
 
+/* function prototypes for cocktail sort algorithm */
+
+void cocktail_sort_list(listint_t **list);
+bool left_bubble_sort(listint_t **list, listint_t **current);
+bool right_bubble_sort(listint_t **list, listint_t **current);
+
 #endif
