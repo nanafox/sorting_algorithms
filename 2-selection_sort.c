@@ -10,7 +10,7 @@
 void selection_sort(int *array, size_t size)
 {
 	size_t i, j, cur_min;
-	int min_found; /* tracks whether a lesser value is found */
+	bool min_found; /* tracks whether a lesser value is found */
 
 	/* there's no need to perform sorting on empty or one-element arrays */
 	if (array == NULL || size < 2)
@@ -19,14 +19,14 @@ void selection_sort(int *array, size_t size)
 	for (i = 0; i < size - 1; i++)
 	{
 		cur_min = i;
-		min_found = 0;
+		min_found = false;
 
 		for (j = i + 1; j < size; j++)
 		{
 			if (array[j] < array[cur_min])
 			{
 				cur_min = j;
-				min_found = 1;
+				min_found = true;
 			}
 		}
 
