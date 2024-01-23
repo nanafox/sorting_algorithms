@@ -1,9 +1,9 @@
 #ifndef SORT_H
 #define SORT_H
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 /**
  * struct listint_s - Doubly linked list node
@@ -45,4 +45,10 @@ bool right_bubble_sort(listint_t **list, listint_t **current);
 void quick_sort_hoare(int *array, size_t size);
 int hoare_partition(int *array, size_t size, int low, int high);
 
+/* function prototypes for merge sort */
+
+void merge_sort(int *array, size_t size);
+void _merge_sort(int *sub_array, int *temp_array, size_t left, size_t right);
+void _merge(int *sub_array, int *temp_array, size_t left, size_t mid,
+			size_t right);
 #endif
