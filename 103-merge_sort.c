@@ -44,7 +44,7 @@ void merge_sort(int *array, size_t size)
  * segment, then recursively sorts the left and right portions of the segment.
  * After sorting, it merges the two sub arrays using the `_merge` function.
  */
-void _merge_sort(int *sub_array, int *temp_array, size_t left, size_t right)
+void _merge_sort(int *sub_array, int *temp_array, int left, int right)
 {
 	int midpoint;
 
@@ -57,52 +57,6 @@ void _merge_sort(int *sub_array, int *temp_array, size_t left, size_t right)
 	_merge(sub_array, temp_array, left, midpoint, right);
 }
 
-/**
- * _merge - Merge two sorted sub arrays into
- * a single sorted sub array.
- * @sub_array: The original array containing two sorted sub arrays.
- * @temp_array: A buffer to store the merged result.
- * @left: The starting index of the first sub array.
- * @midpoint: The ending index of the first sub array.
- * @right: The ending index of the second sub array.
- */
-void _merge(int *sub_array, int *temp_array, size_t left, size_t midpoint,
-			size_t right)
-{
-	int i, j, k;
-
-	printf("Merging...\n");
-
-	printf("[left] : ");
-	print_array(&sub_array[left], midpoint - left);
-
-	printf("[right]: ");
-	print_array(&sub_array[midpoint], right - midpoint);
-
-	i = left;
-	j = midpoint;
-	k = 0;
-	while (i < midpoint && j < right)
-	{
-		if (sub_array[i] < sub_array[j])
-			temp_array[k++] = sub_array[i++];
-		else
-			temp_array[k++] = sub_array[j++];
-	}
-
-	while (i < midpoint)
-		temp_array[k++] = sub_array[i++];
-	while (j < right)
-		temp_array[k++] = sub_array[j++];
-
-	for (i = left, k = 0; i < right; i++)
-		sub_array[i] = temp_array[k++];
-
-	printf("[Done]: ");
-
-	/* copy the sorted elements to the original (sub) array */
-	print_array(&sub_array[left], right - left);
-}
 /**
  * _merge - Fuses two sub arrays into one ordered array.
  * @sub_array: A pointer to the array containing the sub arrays.
@@ -123,14 +77,13 @@ void _merge(int *sub_array, int *temp_array, size_t left, size_t midpoint,
  * prints the merging process, including the left and right sub arrays being
  * merged and the final merged array.
  */
-void _merge(int *sub_array, int *temp_array, size_t left, size_t midpoint,
-			size_t right)
+void _merge(int *sub_array, int *temp_array, int left, int midpoint, int right)
 {
 	int i, j, k;
 
 	printf("Merging...\n");
 
-	printf("[left] : ");
+	printf("[left]: ");
 	print_array(&sub_array[left], midpoint - left);
 
 	printf("[right]: ");

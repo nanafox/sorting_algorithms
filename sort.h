@@ -48,7 +48,6 @@ int hoare_partition(int *array, size_t size, int low, int high);
 /* function prototypes for merge sort */
 
 void merge_sort(int *array, size_t size);
-void _merge_sort(int *sub_array, int *temp_array, size_t left, size_t right);
-void _merge(int *sub_array, int *temp_array, size_t left, size_t mid,
-			size_t right);
+void _merge_sort(int *sub_array, int *temp_array, int left, int right);
+void _merge(int *sub_array, int *temp_array, int left, int mid, int right);
 #endif
