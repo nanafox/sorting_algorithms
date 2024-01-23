@@ -28,16 +28,21 @@ void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void print_array(const int *array, size_t size);
 
-/* function prototypes for quick sort */
+/* function prototypes for quick sort using the Lomuto partition scheme */
 
 void swap(int *x, int *y);
-void _quicksort(int *array, int low, int high, size_t size);
-size_t partition(int *array, int low, int high, size_t size);
+void _quicksort(int *array, size_t size, int low, int high);
+int lomuto_partition(int *array, size_t size, int low, int high);
 
 /* function prototypes for cocktail sort algorithm */
 
 void cocktail_sort_list(listint_t **list);
 bool left_bubble_sort(listint_t **list, listint_t **current);
 bool right_bubble_sort(listint_t **list, listint_t **current);
+
+/* function prototypes for quick sort using the Hoare's partition scheme */
+
+void quick_sort_hoare(int *array, size_t size);
+int hoare_partition(int *array, size_t size, int low, int high);
 
 #endif
