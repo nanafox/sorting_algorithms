@@ -9,7 +9,7 @@
 */
 void quick_sort_hoare(int *array, size_t size)
 {
-	if (size < 2)
+	if (array == NULL || size < 2)
 		return;
 
 	_quicksort(array, size, 0, size - 1);
@@ -66,8 +66,11 @@ int hoare_partition(int *array, size_t size, int low, int high)
 
 		if (pivot_index <= j)
 		{
-			swap(&array[pivot_index], &array[j]);
-			print_array(array, size);
+			if (pivot_index != j)
+			{
+				swap(&array[pivot_index], &array[j]);
+				print_array(array, size);
+			}
 		}
 		else
 			partitioning = false;
